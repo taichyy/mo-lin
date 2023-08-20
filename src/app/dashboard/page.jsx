@@ -47,8 +47,6 @@ const Dashboard = () => {
     fetcher
   )
 
-  console.log(data)
-  console.log(session)
   // Usage examples
   // if (error) return <div>failed to load</div>
   // if (isLoading) return <div>loading...</div>

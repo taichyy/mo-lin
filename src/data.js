@@ -41,7 +41,7 @@ export const dataPortfolio = {
     smallText: "請選擇分類",
     categories: [
         {
-            name: "illustration",
+            name: "illustrations",
             img: "/illustration.png",
             text: "社群貼文"
         },{
@@ -49,7 +49,7 @@ export const dataPortfolio = {
             img: "/websites.jpg",
             text: "一頁式網站"
         },{
-            name: "apps",
+            name: "applications",
             img: "/apps.jpg",
             text: "海報/DM"
         }

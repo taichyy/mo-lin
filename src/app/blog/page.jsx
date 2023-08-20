@@ -32,7 +32,6 @@ const Blog = () => {
     `/api/posts`, 
       fetcher 
   )
-  console.log(data)
   return (
     <div className={styles.mainContainer}>
       {data && data.map(item => (

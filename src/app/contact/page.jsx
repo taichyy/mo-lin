@@ -19,6 +19,7 @@ const Contact = () => {
             alt="Contact image"
             fill={true}
             className={styles.image}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
         <form className={styles.form}>
