@@ -4,7 +4,9 @@ import Link from "next/link"
 import Image from "next/image"
 
 const getData = async () => {
-  const res = await fetch('http://localhost:3000/api/posts',{
+  const apiUrl = process.env.API_URL;
+  console.log(apiUrl)
+  const res = await fetch(`${apiUrl}/api/posts`,{
     next: {
       // Refetch data every visits
       revalidate: "no-store"
