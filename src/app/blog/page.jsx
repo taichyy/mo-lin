@@ -5,7 +5,6 @@ import Image from "next/image"
 
 const getData = async () => {
   const apiUrl = process.env.API_URL;
-  console.log(apiUrl)
   const res = await fetch(`${apiUrl}/api/posts`,{
     next: {
       // Refetch data every visits
@@ -13,15 +12,16 @@ const getData = async () => {
     }
   });
 
-  if(!res.ok){
-    throw new Error('Failed to fetch data')
+  // if(!res.ok){
+  //   throw new Error('Failed to fetch data')
+  // }
+  if(res.ok){
+    return res.json()
   }
-  return res.json()
 }
 
 const Blog = async () => {
   const data = await getData()
-  console.log(data)
   return (
     <div className={styles.mainContainer}>
       {data.map(item => (
