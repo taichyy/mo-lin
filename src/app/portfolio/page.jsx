@@ -11,7 +11,7 @@ const Contact = () => {
       </h1>
       <div className={styles.items}>
         {dataPortfolio.categories.map( (c, index) => (
-          <Link href={`portfolio/${c.name}`} style={{backgroundImage: `url("${c.img}")`}} id={index} className={styles.item}>
+          <Link href={`portfolio/${c.name}`} style={{backgroundImage: `url("${c.img}")`}} id={index} key={index} className={styles.item}>
             <span className={styles.title}>{c.text}</span>
           </Link>
         ))}

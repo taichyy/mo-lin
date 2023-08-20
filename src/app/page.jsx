@@ -12,7 +12,9 @@ export default function Home() {
           {dataHome.bigText}
         </h1>
         <p className={styles.desc}>
-          {dataHome.smallText.map( (line, index) => <span key={index}>{line}<br/></span>)}
+          {dataHome.smallText.map( (line, index) => (
+            <span key={index}>{line}<br/></span>
+          ))}
         </p>
         <Button url="/portfolio" text={dataHome.btnText}/>
       </div>
