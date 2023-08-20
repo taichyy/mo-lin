@@ -1,0 +1,47 @@
+.container {
+
+}
+.catTitle {
+    color: #53c28b
+}
+
+.item {
+    display: flex;
+    gap: 50px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+/* Select all the singular items */
+/* WHY? Because n starts from 0, then 1,2,3,4,5 */
+/* n=0, 2n+1 = 1 */
+/* n=1, 2n+1 = 3 ...... */
+/* In this case, we made all odd items to have [TEXT+IMG] order, */
+/* and all singular items to have [IMG+TEXT] order */
+.item:nth-child(2n+1){
+    flex-direction: row-reverse;
+}
+
+.imgContainer {
+    flex: 1;
+    height: 500px;
+    position: relative;
+}
+
+.img {
+    object-fit: cover;
+}
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+}
+
+.title {
+    font-size: 50px;
+}
+
+.desc {
+    font-size: 20px;
+}

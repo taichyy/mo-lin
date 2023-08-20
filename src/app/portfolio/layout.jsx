@@ -1,0 +1,16 @@
+import React from "react";
+import styles from './page.module.css'
+import { dataPortfolio } from "@/data";
+
+const Layout = ({children}) => {
+    return (
+        <div>
+            <h1 className={styles.mainTitle}>
+                {dataPortfolio.bigText}
+            </h1>
+            {children}
+        </div>
+    )
+}
+
+export default Layout
