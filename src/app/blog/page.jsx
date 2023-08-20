@@ -1,27 +1,38 @@
+"use client"
 import React from "react"
 import styles from './page.module.css'
 import Link from "next/link"
 import Image from "next/image"
+import useSWR from 'swr'
 
-const getData = async () => {
-  const apiUrl = process.env.API_URL;
-  const res = await fetch(`${apiUrl}/api/posts`,{
-    next: {
-      // Refetch data every visits
-      revalidate: "no-store"
-    }
-  });
+// const getData = async () => {
+//   const apiUrl = process.env.API_URL;
+//   const res = await fetch(`${apiUrl}/api/posts`,{
+//     next: {
+//       // Refetch data every visits
+//       revalidate: "no-store"
+//     }
+//   });
 
-  // if(!res.ok){
-  //   throw new Error('Failed to fetch data')
-  // }
-  if(res.ok){
-    return res.json()
-  }
-}
+//   // if(!res.ok){
+//   //   throw new Error('Failed to fetch data')
+//   // }
+//   if(res.ok){
+//     return res.json()
+//   }
+// }
 
-const Blog = async () => {
-  const data = await getData()
+
+
+const Blog = () => {
+  // const data = await getData()
+
+  const fetcher = (...args) => fetch(...args).then(res => res.json())
+  const { data, mutate, error, isLoading } = useSWR(
+    `/api/posts`, 
+      fetcher 
+  )
+  console.log(data)
   return (
     <div className={styles.mainContainer}>
       {data && data.map(item => (
