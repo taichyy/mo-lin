@@ -1,17 +1,45 @@
-import React from 'react'
+"use client"
+import { useSession } from "next-auth/react"
+import { useRouter, usePathname } from "next/navigation"
+import React, { useEffect, useState } from 'react'
 
-// This is for server component only
-export const metadata = {
-  title: "MO LIN | Dashboard",
-  description: "Dashboard page"
-}
+const DashboardLayout = ({ children }) => {
+    const session = useSession()
+    const router = useRouter()
+    const path = usePathname()
+    const [page, setPage] = useState('')
 
-const DashboardLayout = ({children}) => {
-  return (
-    <>
-        {children}
-    </>
-  )
+    useEffect(()=>{
+        let temp = path.split('/')
+        setPage(temp[temp.length-1])
+    },[[path]])
+
+    useEffect(() => {
+        if (session.status === 'unauthenticated') {
+            router?.push("/dashboard/login")
+        }
+    }, [session.status, router])
+
+    if (session.status === 'loading') {
+        return <p>Loading...</p>
+    }
+
+    if (session.status === 'unauthenticated' && page === 'login'){
+        return (
+            <>
+                {children}
+            </>
+        )
+    }
+
+    if(session.status === 'authenticated'){
+        return (
+            <>
+                {children}
+            </>
+        )
+    }
+    
 }
 
 export default DashboardLayout

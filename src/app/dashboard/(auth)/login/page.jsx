@@ -18,7 +18,7 @@ const Login = () => {
     const email = e.target[0].value
     const password = e.target[1].value
 
-    signIn("credentials", {email, password})
+    signIn("credentials", {email, password, callbackUrl: '/dashboard/portfolio'})
   }
 
   if(session.status === 'loading') {
