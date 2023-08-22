@@ -8,10 +8,13 @@ const Footer = () => {
     <div className={styles.container}>
       <div>{dataFooter.text}</div>
       <div className={styles.social}>
-        <Image src="/1.png" width={15} height={15} className={styles.icon} alt="Facebook icon"/>
-        <Image src="/2.png" width={15} height={15} className={styles.icon} alt="Instagram icon"/>
-        <Image src="/3.png" width={15} height={15} className={styles.icon} alt="Twitter icon"/>
-        <Image src="/4.png" width={15} height={15} className={styles.icon} alt="Youtube icon"/>
+        {dataFooter.links.map( (link, index) => (
+          <a href={link.link}target='_new' key={index} >
+            <Image src={link.img} width={15} height={15} className={styles.icon} alt={link.alt}/>
+          </a>
+        ))}
+        {/* <Image src="/3.png" width={15} height={15} className={styles.icon} alt="Twitter icon"/>
+        <Image src="/4.png" width={15} height={15} className={styles.icon} alt="Youtube icon"/> */}
       </div>
     </div>
   )

@@ -21,7 +21,7 @@ export const dataNav = [{
 },{
     id: 6,
     title: "後台",
-    url: "/dashboard"
+    url: "/dashboard/portfolio"
 }
 ]
 
@@ -34,6 +34,14 @@ export const dataHome = {
         "必竭誠為您提供專業服務，謝謝",
     ],
     btnText: "前往作品集"
+}
+
+export const dataContact = {
+    bigText: "馬上聯絡我吧！",
+    btnText: "送出",
+    nameText: "姓　　名",
+    contactText: "聯絡信箱",
+    contextText: "詳細需求"
 }
 
 export const dataPortfolio = {
@@ -58,4 +66,13 @@ export const dataPortfolio = {
 
 export const dataFooter = {
     text: "平面設計 | 影片剪輯",
+    links: [{
+        img: '/1.png',
+        link: 'https://www.facebook.com/profile.php?id=100006433280931',
+        alt: 'FB Link'
+    },{
+        img: '/2.png',
+        link: 'https://instagram.com/mo.l_i?igshid=MzRlODBiNWFlZA==',
+        alt: 'IG Link'
+    }]
 }

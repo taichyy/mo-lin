@@ -1,0 +1,20 @@
+.container {
+    height: 100%;
+}
+
+.subNav {
+    display: flex;
+    gap: 20px;
+}
+.subNav span {
+    cursor: pointer;
+}
+.subNav span:hover {
+    font-weight: bold;
+}
+
+
+
+.active {
+    font-weight: 800;
+}

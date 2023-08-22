@@ -41,3 +41,8 @@ a{
   flex-direction: column;
   justify-content: space-between;
 }
+
+.childrenContainer {
+  flex: 1;
+  display: flex;
+}

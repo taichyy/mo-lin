@@ -1,0 +1,10 @@
+.cats {
+    margin-top: 12px;
+}
+.cats a {
+    text-decoration: underline;
+    margin-right: 12px;
+}
+.cats a:hover {
+    color: #53c28b;
+}
