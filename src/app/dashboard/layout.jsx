@@ -2,11 +2,11 @@ import React from 'react'
 
 // This is for server component only
 export const metadata = {
-  title: "MO LIN | Contact",
-  description: "Contact page"
+  title: "MO LIN | Dashboard",
+  description: "Dashboard page"
 }
 
-const ContactLayout = ({children}) => {
+const DashboardLayout = ({children}) => {
   return (
     <>
         {children}
@@ -14,4 +14,4 @@ const ContactLayout = ({children}) => {
   )
 }
 
-export default ContactLayout
+export default DashboardLayout

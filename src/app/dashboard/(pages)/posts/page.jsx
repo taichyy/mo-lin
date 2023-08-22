@@ -37,7 +37,6 @@ const Posts = () => {
   // },[])
 
   const session = useSession()
-  const router = useRouter()
 
   // NextJS SWR hook
   // fetcher can be any asynchronous function which returns the data
@@ -50,13 +49,6 @@ const Posts = () => {
   // Usage examples
   // if (error) return <div>failed to load</div>
   // if (isLoading) return <div>loading...</div>
-
-  if(session.status === 'loading'){
-    return <p>Loading...</p>
-  }
-  if(session.status === 'unauthenticated'){
-    router?.push("/dashboard/login")
-  }
 
   const handleSubmit = async(e) => {
     e.preventDefault()
