@@ -9,7 +9,7 @@ export const metadata = {
 
 const Layout = ({children}) => {
     return (
-        <div>
+        <div style={{width: "100%"}}>
             <h1 className={styles.mainTitle}>
                 {dataPortfolio.bigText}
             </h1>

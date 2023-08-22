@@ -4,6 +4,7 @@ import styles from './page.module.css'
 import Link from "next/link"
 import Image from "next/image"
 import useSWR from 'swr'
+import Loading from "@/components/Loading/Loading"
 
 // const getData = async () => {
 //   const apiUrl = process.env.API_URL;
@@ -34,6 +35,7 @@ const Blog = () => {
   )
   return (
     <div className={styles.mainContainer}>
+      {isLoading && <Loading/>}
       {data && data.map(item => (
         <Link href={`blog/${item._id}`} className={styles.container} key={item._id}>
           <div className={styles.imageContainer}>
