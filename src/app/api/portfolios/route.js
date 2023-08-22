@@ -6,6 +6,8 @@ import Portfolios from "@/models/Portfolios"
 export const GET = async (request) => {
 
     const url = new URL(request.url)
+    // This variable name must be the same with the name in mongoDB
+    const category = url.searchParams.get('category')
 
     // Fetch
     try{
@@ -13,7 +15,7 @@ export const GET = async (request) => {
         await connect()
         // If there's a username, search for the username.
         // If no, search for all the data.
-        const works = await Portfolios.find()
+        const works = await Portfolios.find(category && {category})
         return new NextResponse(JSON.stringify(works), {
             status: 200
         })

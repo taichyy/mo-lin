@@ -2,25 +2,31 @@ import React from "react"
 import Image from "next/image"
 import styles from './page.module.css'
 import Button from "@/components/button/Button"
-import { items } from './data.js'
 import { notFound } from "next/navigation"
+import Link from "next/link"
 
-const getData = (cat) => {
-  const data = items[cat]
+async function getData(cat){
+  const apiUrl = process.env.API_URL
+  const res = await fetch(`${apiUrl}/api/portfolios?category=${cat}`,{
+    next: {
+      revalidate: 10
+    }
+  })
 
-  if(data){
-    return data
+  if(!res.ok){
+    // This shit doesn't auto import, it's from next/navigation
+    return notFound()
   }
-
-  return notFound()
+  return res.json()
 }
 
-const Category = ({params}) => {
-  const data = getData(params.category)
+const Category = async ({params}) => {
+  const data = await getData(params.category)
   return (
     <div className={styles.container}>
       {/* 'category' comes from the path name */}
       <h1 className={styles.catTitle}>{params.category}</h1>
+      <Link href="/portfolio">{<><br/>{'<<返回'}</>}</Link>
       {data.map(item => (
         <div className={styles.item} key={item.id}>
           <div className={styles.content}>
