@@ -5,11 +5,6 @@ import Button from "@/components/button/Button"
 import styles from './page.module.css'
 import { dataContact } from "@/data"
 
-export const metadata = {
-  title: "TaiCHe Demo | Contact",
-  description: "Contact page"
-}
-
 const Contact = () => {
 
   const handleSubmit = async (e) => {
