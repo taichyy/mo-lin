@@ -12,7 +12,7 @@ const DashboardLayout = ({ children }) => {
     useEffect(()=>{
         let temp = path.split('/')
         setPage(temp[temp.length-1])
-    },[[path]])
+    },[path])
 
     useEffect(() => {
         if (session.status === 'unauthenticated') {
