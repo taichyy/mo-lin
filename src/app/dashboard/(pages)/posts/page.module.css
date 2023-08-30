@@ -3,14 +3,24 @@
     gap: 100px;
 }
 
+.cats {
+    margin-top: 12px;
+}
+.cats span {
+    text-decoration: underline;
+    margin-right: 12px;
+    cursor: pointer;
+}
+.cats span:hover {
+    color: #53c28b;
+}
+
 .posts {
     flex: 1;
 }
 
 .post {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
     margin: 50px 0px;
 }
 
@@ -18,6 +28,12 @@
     width: 200px;
     height: 100px;
     position: relative;
+}
+
+.textContainer {
+    margin: 0 15px;
+    flex: 1;
+    height: max-content;
 }
 
 .img {
@@ -29,12 +45,18 @@
     color: red;
 }
 
+.edit {
+    margin-top: 4px;
+    margin-right: 5px;
+}
+
 .new {
     flex: 1;
     max-width: 30%;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    transition: .2s;
 }
 
 .input, .textArea {

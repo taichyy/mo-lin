@@ -3,10 +3,12 @@ import Link from 'next/link'
 import styles from './layout.module.css'
 import { useState } from 'react'
 import useSWR from 'swr'
+import { usePathname } from 'next/navigation'
 
 export default function DashboardLayout({ children }) {
 
-  const [cat, setCat] = useState("portfolio")
+  const pathName = usePathname().split('/');
+  const [cat, setCat] = useState(pathName[pathName.length-1])
 
   return (
     <div className={styles.container}>
