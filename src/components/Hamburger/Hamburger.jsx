@@ -2,8 +2,9 @@
 // Modules
 import Link from 'next/link';
 import { signOut, useSession } from 'next-auth/react'
-import { dataNav } from '@/data'
+
 // Data
+import { dataNav } from '@/data'
 
 // Components
 
@@ -35,13 +36,8 @@ export default function Hamburger() {
                 but hey, it's pure CSS magic.
                 --> */}
                 <ul className={styles.menu}>
-                    <Link href="/">
-                        <li>
-                            <h4 style={{fontWeight : "800"}}>回首頁</h4>
-                        </li>
-                    </Link>
                     {dataNav.map(link => (
-                        <Link key={link.id} href={link.url} className={styles.link}>
+                        <Link key={link.id} href={link.url} className={styles.link} >
                             <li>
                                 <h4>{link.title}</h4>
                             </li>

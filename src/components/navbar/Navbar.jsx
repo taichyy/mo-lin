@@ -7,10 +7,8 @@ import { signOut, useSession } from 'next-auth/react'
 import { dataNav } from '@/data'
 import Hamburger from '../Hamburger/Hamburger'
 
-
 const Navbar = () => {
     const session = useSession()
-
     return (
         <div className={styles.container}>
             <Link href="/" className={styles.logo}>MO LIN</Link>

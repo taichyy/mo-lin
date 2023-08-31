@@ -159,12 +159,14 @@ const Posts = () => {
                   <h2 className={styles.postTitle}>{post.title}</h2>
                   <h3 className={styles.postDesc}>{post.desc}</h3>
                 </div>
-                <AiFillEdit className={styles.edit}
-                  onClick={()=>{
-                    handleNavClick('edit', post._id);
-                  }}
-                />
-                <span className={styles.delete} onClick={()=>handleDelete(post._id)}>X</span>
+                <div className={styles.delBox}>
+                  <AiFillEdit className={styles.edit}
+                    onClick={()=>{
+                      handleNavClick('edit', post._id);
+                    }}
+                  />
+                  <span className={styles.delete} onClick={()=>handleDelete(post._id)}>X</span>
+                </div>
               </div>
             )}
           </div>

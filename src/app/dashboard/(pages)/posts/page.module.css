@@ -46,7 +46,6 @@
 }
 
 .edit {
-    margin-top: 4px;
     margin-right: 5px;
 }
 
@@ -85,6 +84,9 @@
     line-height: 2;
     text-align: right;
 }
+.delBox {
+    font-size: 24px;
+}
 
 @media screen and (max-width:768px) {
     .container {
@@ -118,5 +120,16 @@
     }
     .mobileBtn {
         display: block;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .post {
+        flex-direction: column-reverse;
+        border-bottom: 1px solid #fff;
+        padding-bottom: 30px;
+    }
+    .textContainer {
+        margin: 15px 0;
     }
 }
