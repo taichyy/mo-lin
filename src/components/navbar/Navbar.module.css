@@ -24,3 +24,9 @@
     cursor: pointer;
     border-radius: 3px;
 }
+
+@media screen and (max-width:768px) {
+    .links {
+        display: none;
+    }
+}

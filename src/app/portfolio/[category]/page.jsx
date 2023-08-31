@@ -31,7 +31,7 @@ const Category = async ({params}) => {
         <div className={styles.item} key={item.id}>
           <div className={styles.content}>
             <h1 className={styles.title}>{item.title}</h1>
-            <p className={styles.desc}>{item.desc}</p>
+            <p className={styles.desc}>{item.body}</p>
             {/* <Button text="See More" url="#" /> */}
           </div>
           <div className={styles.imgContainer}>

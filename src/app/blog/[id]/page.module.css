@@ -35,7 +35,7 @@
 
 .imageContainer {
     flex: 1;
-    height: 300px;
+    min-height: 300px;
     position: relative;
 }
 
@@ -49,4 +49,14 @@
     font-weight: 300;
     color: #999;
     text-align: justify;
+}
+
+@media screen and (max-width:768px) {
+    .info {
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+    .top{
+        flex-direction: column;
+    }
 }

@@ -41,3 +41,9 @@
     font-weight: 300;
     text-align: justify;
 }
+
+@media screen and (max-width:768px) {
+    .textContainer {
+        gap: 30px;
+    }
+}

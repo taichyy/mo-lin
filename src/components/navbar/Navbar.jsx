@@ -5,6 +5,7 @@ import styles from './Navbar.module.css'
 import DarkModeToggle from '../darkModeToggle/DarkModeToggle'
 import { signOut, useSession } from 'next-auth/react'
 import { dataNav } from '@/data'
+import Hamburger from '../Hamburger/Hamburger'
 
 
 const Navbar = () => {
@@ -13,6 +14,7 @@ const Navbar = () => {
     return (
         <div className={styles.container}>
             <Link href="/" className={styles.logo}>MO LIN</Link>
+            <Hamburger/>
             <div className={styles.links}>
                 <DarkModeToggle/>
                 {dataNav.map(link => (

@@ -78,3 +78,45 @@
     color: #eee;
     font-weight: bold;
 }
+.mobileBtn {
+    color: red;
+    font-size:30px;
+    display: none;
+    line-height: 2;
+    text-align: right;
+}
+
+@media screen and (max-width:768px) {
+    .container {
+        gap: 20px;
+        min-height: 100%;
+    }
+    .new {
+        display: flex;
+        position: absolute;
+        background-color: #000;
+        min-width:100vw;
+        max-width: 100vw;
+        overflow: hidden;
+        padding: 30px;
+        left:0;
+        top:10vh;
+        height:90vh;
+        gap: 0;
+    }
+    .new h1 {
+        margin-bottom: 20px;
+    }
+    .new input {
+        margin-bottom: 30px;
+        width: 100%;
+    }
+    .new textarea {
+        margin-bottom: 50px;
+        width: 100%;
+        height: 30vh
+    }
+    .mobileBtn {
+        display: block;
+    }
+}

@@ -1,6 +1,5 @@
 .container {
     display: flex;
-    align-items: center;
     gap: 50px;
     margin-bottom: 50px;
     width: 100%;
@@ -21,4 +20,15 @@
 .desc{
     font-size: 18px;
     color: #999;
+}
+
+.content {
+    min-height: 20vh;
+}
+
+@media screen and (max-width:768px) {
+    .image {
+        width: 40vw;
+        height: 20vh
+    }
 }

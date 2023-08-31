@@ -62,6 +62,10 @@ const Posts = () => {
   const [formTitle, setFormTitle] = useState('新增貼文')
   const [formBtnText, setFormBtnText] = useState('確定新增')
 
+  useEffect(()=>{
+
+  },[formShow])
+
   const handleNavClick = (cat, id) => {
     if(cat == 'post'){
       setFormShow(true)
@@ -164,7 +168,10 @@ const Posts = () => {
               </div>
             )}
           </div>
-          <form className={styles.new} onSubmit={method} style={formShow==false ? {opacity: "0"} : {opacity: "1"}} ref={formRef}>
+          <form className={styles.new} onSubmit={method} style={formShow==false ? {display: "none"} : {display: "flex"}} ref={formRef}>
+            <span className={styles.mobileBtn} onClick={()=>setFormShow(false)}>
+              X
+            </span>
             <h1>
               {formTitle}
             </h1>
