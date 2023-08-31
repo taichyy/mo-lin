@@ -43,3 +43,24 @@ export const DELETE = async (request ,{params}) => {
         })
     }
 }
+
+export const PUT = async (request ,{params}) => {
+
+    const {id} = params
+    const body = await request.json()
+
+    // Fetch
+    try{
+        // From utils/db.js
+        await connect()
+        await Post.findByIdAndUpdate(id, body)
+
+        return new NextResponse("Post has been deleted", {
+            status: 200
+        })
+    }catch (err){
+        return new NextResponse("Database Error", {
+            status: 500,
+        })
+    }
+}

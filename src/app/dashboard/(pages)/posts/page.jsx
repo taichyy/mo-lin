@@ -56,6 +56,7 @@ const Posts = () => {
 
 
   // Form hooks
+  const formRef = useRef()
   const [formShow, setFormShow] = useState(false)
   const [method, setMethod] = useState(null)
   const [formTitle, setFormTitle] = useState('新增貼文')
@@ -72,6 +73,11 @@ const Posts = () => {
       setMethod(()=>handleEdit)
       setFormTitle('編輯貼文')
       setFormBtnText('確定編輯')
+      const clickedData = data.filter((item)=>item._id == id)[0]
+      formRef.current[0].value = clickedData.title
+      formRef.current[1].value = clickedData.desc
+      formRef.current[2].value = clickedData.img
+      formRef.current[3].value = clickedData.content
     }
 
     // Define handleEdit here, so that handleEdit can access to id
@@ -79,11 +85,24 @@ const Posts = () => {
       e.preventDefault()
       // Get values
       const title = e.target[0].value
-      const subTitle = e.target[1].value
-      const imgLink = e.target[2].value
-      const body = e.target[3].value
+      const desc = e.target[1].value
+      const img = e.target[2].value
+      const content = e.target[3].value
+      try{
+        await fetch(`/api/posts/${id}`,{
+          method:"PUT",
+          body: JSON.stringify({
+            title, desc, img, content, username:session.data.user.name
+          })
+        })
+        mutate()
+        e.target.reset()
+      }catch(err){
+        console.log(err)
+      }
     }
   }
+
 
   const handleDelete = async(id) => {
     if(confirm('確定要刪除嗎？')){
@@ -145,7 +164,7 @@ const Posts = () => {
               </div>
             )}
           </div>
-          <form className={styles.new} onSubmit={method} style={formShow==false ? {opacity: "0"} : {opacity: "1"}}>
+          <form className={styles.new} onSubmit={method} style={formShow==false ? {opacity: "0"} : {opacity: "1"}} ref={formRef}>
             <h1>
               {formTitle}
             </h1>

@@ -1,35 +1,60 @@
+"use client"
 import React from 'react'
 import styles from './page.module.css'
-import { notFound } from "next/navigation"
+import { AiFillEdit, AiOutlineClose } from 'react-icons/ai'
+// SWR
+import useSWR from 'swr'
 
-async function getData(){
-  const apiUrl = process.env.API_URL
-  const res = await fetch(`${apiUrl}/api/portfolios`,{
-    next: {
-      revalidate: 10
-    }
-  })
+const PCategory = ({params}) => {
 
-  if(!res.ok){
-    // This shit doesn't auto import, it's from next/navigation
-    return notFound()
-  }
-  return res.json()
-}
-
-const PCategory = async ({params}) => {
-  const data = await getData()
+  // Type of works wanted to fetch
   const type = params.category;
+
+  // Fetch portfolios data
+  const fetcher = (...args) => fetch(...args).then(res => res.json())
+  const { data: works, mutate, error, isLoading } = useSWR(
+    `/api/portfolios`, 
+    fetcher
+  )
+
 
   return (
     <div className={styles.container}>
-        {data.map( (cat, index) => (
-          cat.category === type+'' ? (
-          <div key={index} className={styles.table}>
-            {cat.title}
+      <div className={styles.table}>
+        <div className={styles.itemFirst}>
+          <div className={styles.itemTitle}>
+            標題
+          </div>
+          <div className={styles.itemBody}>
+            內文
+          </div>
+          <div className={styles.itemImg}>
+            圖片連結
+          </div>
+          <div className={styles.itemBtns}>
+          </div>
+        </div>
+        {works && works.map( (item, index) => (
+          item.category === type+'' ? (
+          <div key={index} className={styles.item}>
+            <div className={styles.itemTitle}>
+              {item.title}
+            </div>
+            <div className={styles.itemBody}>
+              {item.body}
+            </div>
+            <div className={styles.itemImg}>
+              {item.img}
+            </div>
+            <div className={styles.itemBtns}>
+              <AiFillEdit/>
+              <AiOutlineClose/>
+            </div>
           </div>)
           :null
         ))}
+      </div>
+        
     </div>
   )
 }

@@ -17,7 +17,7 @@ const Dashboard = () => {
     }
 
     return (
-        <div>Dashboard</div>
+        router?.push("dashboard/portfolio/posts")
     )
 }
 
