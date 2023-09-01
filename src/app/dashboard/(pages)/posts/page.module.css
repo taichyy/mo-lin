@@ -22,6 +22,7 @@
 .post {
     display: flex;
     margin: 50px 0px;
+    max-height: 200px;
 }
 
 .imgContainer {
@@ -33,7 +34,7 @@
 .textContainer {
     margin: 0 15px;
     flex: 1;
-    height: max-content;
+    overflow: scroll;
 }
 
 .img {
@@ -47,6 +48,7 @@
 
 .edit {
     margin-right: 5px;
+    padding-top: 3px;
 }
 
 .new {
@@ -88,7 +90,7 @@
     font-size: 24px;
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:768px) and (min-width: 481px) {
     .container {
         gap: 20px;
         min-height: 100%;
@@ -128,8 +130,11 @@
         flex-direction: column-reverse;
         border-bottom: 1px solid #fff;
         padding-bottom: 30px;
+        max-height: max-content;
     }
     .textContainer {
         margin: 15px 0;
+        overflow: auto;
+        max-height: 200px;
     }
 }

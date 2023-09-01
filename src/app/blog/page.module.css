@@ -32,3 +32,18 @@
         height: 20vh
     }
 }
+
+@media screen and (max-width:480px) {
+    .title {
+        font-size: 20px;
+    }
+    .desc {
+        font-size: 14px;
+    }
+    .container {
+        gap: 20px;
+    }
+    .image {
+        width: 30vw;
+    }
+}

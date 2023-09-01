@@ -46,9 +46,17 @@ const PCategory = ({params}) => {
             <div className={styles.itemImg}>
               {item.img}
             </div>
-            <div className={styles.itemBtns}>
-              <AiFillEdit/>
-              <AiOutlineClose/>
+            <div className={styles.delBox}>
+              <AiFillEdit className={styles.edit}
+                onClick={()=>{
+                  handleNavClick('edit', post._id);
+                }}
+              />
+              <span className={styles.delete} 
+                onClick={()=>{
+                  handleDelete(post._id)
+                }}
+              >X</span>
             </div>
           </div>)
           :null

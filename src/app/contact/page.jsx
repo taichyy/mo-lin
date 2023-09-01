@@ -1,7 +1,6 @@
 "use client"
 import React from "react"
 import Image from "next/image"
-import Button from "@/components/button/Button"
 import styles from './page.module.css'
 import { dataContact } from "@/data"
 import { useState } from "react"
