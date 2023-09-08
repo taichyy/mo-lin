@@ -9,6 +9,7 @@ import Hamburger from '../Hamburger/Hamburger'
 
 const Navbar = () => {
     const session = useSession()
+    
     return (
         <div className={styles.container}>
             <Link href="/" className={styles.logo}>MO LIN</Link>

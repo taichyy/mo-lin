@@ -1,4 +1,6 @@
 "use client"
+// Hooks
+import { useState } from 'react'
 import React from 'react'
 import styles from './page.module.css'
 import { AiFillEdit, AiOutlineClose } from 'react-icons/ai'
@@ -17,9 +19,16 @@ const PCategory = ({params}) => {
     fetcher
   )
 
+  // Contorl popup
+  const [pop, setPop] = useState(true)
+  const [popTitle, setPopTitle] = useState('編輯')
+
 
   return (
     <div className={styles.container}>
+      <div className={`${pop? styles.popClose : styles.popOpen} ${styles.pop} `}>
+        <h2 className={styles.popTitle}>{popTitle}</h2>
+      </div>
       <div className={styles.table}>
         <div className={styles.itemFirst}>
           <div className={styles.itemTitle}>

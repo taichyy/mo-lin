@@ -22,3 +22,22 @@
     cursor: pointer;
     color: red;
 }
+
+.pop {
+    position: fixed;
+    top: 20vh;
+    left: 20vw;
+    height: 60vh;
+    width: 60vw;
+    background-color: #000;
+    border-radius: 15px;
+    border: 1px solid #2e2828;
+    padding: 1vw;
+    transition: .3s;
+}
+.popOpen {
+    top: -100vh;
+}
+.popClose {
+    display: 20vh;
+}
