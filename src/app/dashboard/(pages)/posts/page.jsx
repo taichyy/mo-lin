@@ -46,25 +46,12 @@ const Posts = () => {
     fetcher
   )
 
-  // Usage examples
-  // if (error) return <div>failed to load</div>
-  // if (isLoading) return <div>loading...</div>
-
-
-
-
-
-
   // Form hooks
   const formRef = useRef()
   const [formShow, setFormShow] = useState(false)
   const [method, setMethod] = useState(null)
   const [formTitle, setFormTitle] = useState('新增貼文')
   const [formBtnText, setFormBtnText] = useState('確定新增')
-
-  useEffect(()=>{
-
-  },[formShow])
 
   const handleNavClick = (cat, id) => {
     if(cat == 'post'){

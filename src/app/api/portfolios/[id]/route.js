@@ -1,28 +1,8 @@
 import { NextResponse } from "next/server"
 import connect from "@/utils/db"
-import Post from "@/models/Post"
+import Portfolios from "@/models/Portfolios"
 
 // Name must be route.js
-export const GET = async (request ,{params}) => {
-
-    const {id} = params
-
-    // Fetch
-    try{
-        // From utils/db.js
-        await connect()
-        const post = await Post.findById(id)
-        return new NextResponse(JSON.stringify(post), {
-            status: 200
-        })
-    }catch (err){
-        return new NextResponse("Database Error", {
-            status: 500,
-        })
-    }
-}
-
-
 export const DELETE = async (request ,{params}) => {
 
     const {id} = params
@@ -31,9 +11,9 @@ export const DELETE = async (request ,{params}) => {
     try{
         // From utils/db.js
         await connect()
-        await Post.findByIdAndDelete(id)
+        await Portfolios.findByIdAndDelete(id)
 
-        return new NextResponse("Post has been deleted", {
+        return new NextResponse("Portfolios has been deleted", {
             status: 200
         })
     }catch (err){
@@ -52,9 +32,9 @@ export const PUT = async (request ,{params}) => {
     try{
         // From utils/db.js
         await connect()
-        await Post.findByIdAndUpdate(id, body)
+        await Portfolios.findByIdAndUpdate(id, body)
 
-        return new NextResponse("Post has been deleted", {
+        return new NextResponse("Portfolios has been deleted", {
             status: 200
         })
     }catch (err){

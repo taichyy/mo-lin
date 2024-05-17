@@ -8,6 +8,7 @@ export default function DashboardLayout({ children }) {
 
   const pathName = usePathname().split('/');
   const [cat, setCat] = useState(pathName[pathName.length-1])
+  console.log(cat)
 
   return (
     <div className={styles.container}>
